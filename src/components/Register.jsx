@@ -12,7 +12,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://127.0.0.1:5000/api/register', { name, email, password });
+            const { data } = await axios.post('https://fsd-mse2-backend-aj5b.onrender.com/api/register', { name, email, password });
             localStorage.setItem('userInfo', JSON.stringify(data));
             navigate('/dashboard');
         } catch (err) {

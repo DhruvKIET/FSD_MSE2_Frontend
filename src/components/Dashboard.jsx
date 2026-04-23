@@ -26,7 +26,7 @@ const Dashboard = () => {
 
     const fetchItems = async () => {
         try {
-            const { data } = await axios.get('http://127.0.0.1:5000/api/items');
+            const { data } = await axios.get('https://fsd-mse2-backend-aj5b.onrender.com/api/items');
             setItems(data);
         } catch (err) {
             console.error(err);
@@ -43,7 +43,7 @@ const Dashboard = () => {
             return;
         }
         try {
-            const { data } = await axios.get(`http://127.0.0.1:5000/api/items/search?name=${nameVal}&type=${typeVal}`);
+            const { data } = await axios.get(`https://fsd-mse2-backend-aj5b.onrender.com/api/items/search?name=${nameVal}&type=${typeVal}`);
             setItems(data);
         } catch (err) {
             console.error(err);
@@ -61,10 +61,10 @@ const Dashboard = () => {
 
         try {
             if (editId) {
-                await axios.put(`http://127.0.0.1:5000/api/items/${editId}`, itemData, config);
+                await axios.put(`https://fsd-mse2-backend-aj5b.onrender.com/api/items/${editId}`, itemData, config);
                 setEditId(null);
             } else {
-                await axios.post('http://127.0.0.1:5000/api/items', itemData, config);
+                await axios.post('https://fsd-mse2-backend-aj5b.onrender.com/api/items', itemData, config);
             }
             setItemName('');
             setDescription('');
@@ -93,7 +93,7 @@ const Dashboard = () => {
         if (window.confirm('Are you sure?')) {
             try {
                 const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-                await axios.delete(`http://127.0.0.1:5000/api/items/${id}`, config);
+                await axios.delete(`https://fsd-mse2-backend-aj5b.onrender.com/api/items/${id}`, config);
                 fetchItems();
             } catch (err) {
                 console.error(err);
